@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "strictPropertyInitialization": false, // TODO: change to true as recommended
+        "target": "es6",
+        "strict": true,
+        "noImplicitAny": true,
+        "allowJs": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "moduleResolution": "node",
+        "lib": ["esnext.array", "ES2019.Object"],
+        "sourceMap": true,
+        "outDir": "dist",
+        "types": ["node", "reflect-metadata", "jest"],
+        "baseUrl": ".",
+        "paths": {
+            "*": ["node_modules/*", "src/types/*", "src/*"]
+        }
+    },
+    "include": ["./**/*.ts", "src/models/**.ts"],
+    "exclude": ["node_modules", "dist", "data", "config", "**/*.spec.ts", "**/*.test.ts"]
+}
