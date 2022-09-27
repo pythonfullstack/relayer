@@ -6,10 +6,9 @@ The project is a multi-chain relayer system that we can limit the chains to be o
 
 Sending transactions on-chain requires gas fee. A relayer is essentially a system which sends transactions on behalf of the user so the user doesn’t have to spend gas fees. But in this case we have a little different relayer - where we let users pre-fill gas one time and let them send transactions without gas later. 
 
-## Architecture
+## Tech-stack
 
 - Express.js
-- Rate-limiting with Express rate limiting
 - Prisma as an interface with the DB [https://www.prisma.io/](https://www.prisma.io/)
 - PostgreSQL
 
