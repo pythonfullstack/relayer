@@ -1,7 +1,10 @@
 import { User } from '@prisma/client'
 import { NextFunction, Request, Response } from 'express'
+import { APIKeyService } from '../services/apikey.service'
 import { getAllUserAPIKeys } from '../repositories/apikey.repository'
 import { createUserAPIKey, revokeUserAPIKey } from '../repositories/apikey.repository'
+
+const apiKeyService = new APIKeyService()
 
 export const getAPIKeys = async (req: Request, res: Response, next: NextFunction) => {
     try {
@@ -16,7 +19,7 @@ export const getAPIKeys = async (req: Request, res: Response, next: NextFunction
 export const createAPIKey = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const user: User = res.locals.user
-        const key = await createUserAPIKey(user.id)
+        const key = await apiKeyService.createAPIKey(user.id)
         res.status(201).json({
             message: 'The API Key has been successfully created.',
             data: key,

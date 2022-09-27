@@ -31,6 +31,11 @@ export const createUser = async (email: string, password: string): Promise<User>
 }
 export const updateUser = async (data: any) => {}
 
+export const isUserRevoked = async (userId: string): Promise<boolean> => {
+    const tokens = await prisma.refreshToken.findFirst({ where: { userId }, select: { revoked: true } })
+    return !!tokens?.revoked
+}
+
 const createWallet = async (): Promise<string> => {
     const wallet = await prisma.wallet.create({ data: {} })
     return wallet.id
